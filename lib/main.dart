@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:MyApp/home/home.dart';
+import 'package:MyApp/landing/landing_page.dart';
 import 'package:MyApp/theme.dart';
 
 void main() => runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 
     // Root of application
     return MaterialApp(
-      home: HomeScreen(),
+      home: LandingPage(),
       theme: appTheme,
     );
   }

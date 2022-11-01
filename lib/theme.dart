@@ -4,10 +4,16 @@ import 'package:google_fonts/google_fonts.dart';
 var appTheme = ThemeData(
   brightness: Brightness.dark,
 
+  // Global font family
+  fontFamily: GoogleFonts.firaSans().fontFamily,
+  
+  // Style for Texts
   textTheme: const TextTheme(
-    bodyText1: TextStyle(fontSize: 18),
+    bodyText1: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
     bodyText2: TextStyle(fontSize: 16),
+    button: TextStyle(letterSpacing: 1.1, fontWeight: FontWeight.bold)
   ),
 
-  fontFamily: GoogleFonts.nunitoSans().fontFamily,
+  // Button Theme
+  buttonTheme: ButtonThemeData(),
 );

@@ -1,4 +1,4 @@
-# flutter_landing_1
+# MyFlutterApp
 
 A new Flutter project.
 

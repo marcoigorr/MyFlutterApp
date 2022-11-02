@@ -10,7 +10,7 @@ var appTheme = ThemeData(
   // Style for Texts
   textTheme: const TextTheme(
     bodyText1: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-    bodyText2: TextStyle(fontSize: 16),
+    bodyText2: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     button: TextStyle(letterSpacing: 1.1, fontWeight: FontWeight.bold)
   ),
 

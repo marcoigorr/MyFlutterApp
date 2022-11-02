@@ -37,7 +37,7 @@ class LandingPage extends StatelessWidget {
           // Button 
 
           Container(
-            width: 80.0,
+            padding: EdgeInsets.only(left: 110.0, right: 110.0),
             child: ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '/home'),
               child: Text('Here goes nothing', style: Theme.of(context).textTheme.button,),

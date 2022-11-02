@@ -20,7 +20,6 @@ class LandingPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-
             // Empty box just to create space between
             SizedBox(height: 50,),
 
@@ -34,12 +33,12 @@ class LandingPage extends StatelessWidget {
 
             // Button 
             Container(
-              padding: EdgeInsets.only(left: 80.0, right: 80.0),
+              margin: EdgeInsets.only(left: 80.0, right: 80.0),
               child: ElevatedButton(
                 onPressed: () => Navigator.pushNamed(context, '/home'),
                 child: Text('Here goes nothing', style: Theme.of(context).textTheme.button,),
               ),
-            ),            
+            ),
           ],
         ),  
       ), 

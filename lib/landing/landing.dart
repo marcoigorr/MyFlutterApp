@@ -20,7 +20,6 @@ class LandingPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-
             // Empty box just to create space between
             SizedBox(height: 50,),
 
@@ -39,7 +38,7 @@ class LandingPage extends StatelessWidget {
                 onPressed: () => Navigator.pushNamed(context, '/home'),
                 child: Text('Here goes nothing', style: Theme.of(context).textTheme.button,),
               ),
-            ),            
+            ),
           ],
         ),  
       ), 
@@ -51,7 +50,7 @@ class LandingPage extends StatelessWidget {
         child: Text(
           'Copyright 2022 Marco Petronio',
           style: Theme.of(context).textTheme.bodySmall,
-          ), 
+          ),
       ),
     );
   }

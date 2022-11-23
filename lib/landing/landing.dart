@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatelessWidget {
-  const LandingPage ({ Key? key}) : super(key: key);
+  const LandingPage({Key? key}) : super(key: key);
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
 
@@ -15,13 +15,15 @@ class LandingPage extends StatelessWidget {
         title: const Text('MyFlutterApplication'),
       ),
 
-      body: SingleChildScrollView( 
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             // Empty box just to create space between
-            SizedBox(height: 50,),
+            SizedBox(
+              height: 50,
+            ),
 
             // Logo image
             FlutterLogo(
@@ -31,32 +33,36 @@ class LandingPage extends StatelessWidget {
             // Title Centered
             CreateText(4, 'Welcome To MyApp', true, context),
 
-            // Button 
+            // Button
             Container(
               margin: EdgeInsets.only(left: 80.0, right: 80.0),
               child: ElevatedButton(
                 onPressed: () => Navigator.pushNamed(context, '/home'),
-                child: Text('Here goes nothing', style: Theme.of(context).textTheme.button,),
+                child: Text(
+                  'Here goes nothing',
+                  style: Theme.of(context).textTheme.button,
+                ),
               ),
             ),
           ],
-        ),  
-      ), 
+        ),
+      ),
 
       // footer
       bottomSheet: Container(
         height: 60.0,
         alignment: Alignment.center,
         child: Text(
-          'Copyright 2022 Marco Petronio',
+          'Copyright 2022 marcoigorr',
           style: Theme.of(context).textTheme.bodySmall,
-          ),
+        ),
       ),
     );
   }
 
-  Widget CreateText(double hFactor, String text, bool title, BuildContext context) {
-    if (title) {    
+  Widget CreateText(
+      double hFactor, String text, bool title, BuildContext context) {
+    if (title) {
       return Center(
         heightFactor: hFactor,
         child: Text(
@@ -71,7 +77,7 @@ class LandingPage extends StatelessWidget {
           text,
           style: Theme.of(context).textTheme.bodyText2,
         ),
-      ); 
+      );
     }
   }
 }

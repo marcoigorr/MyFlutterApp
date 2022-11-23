@@ -25,26 +25,61 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<String> _list = ['Opzione 1', 'Opzione 2', 'Opzione 3'];
+  final TextEditingController _controller = TextEditingController();
+
+  final List<String> _list = ['Option 1', 'Option 2', 'Option 3'];
+  String option = 'Choose option';
+  String message = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      final String text = _controller.text.toLowerCase();
+      _controller.value = _controller.value.copyWith(
+        text: text,
+        selection:
+            TextSelection(baseOffset: text.length, extentOffset: text.length),
+        composing: TextRange.empty,
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         const Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(20.0),
           child: TextField(
+            controller: _controller,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(hintText: 'Insert number'),
           ),
+        ),
+        const Spacer(
+          flex: 1,
         ),
         DropdownButton<String>(
           items: _list.map((String value) {
             return DropdownMenuItem<String>(value: value, child: Text(value));
           }).toList(),
           onChanged: (String? newValue) {},
+          value: _list[0],
+          icon: const Icon(Icons.arrow_drop_down_rounded),
+          style: Theme.of(context).textTheme.labelMedium,
         ),
-        ElevatedButton(onPressed: () {}, child: const Text('Calculate'))
+        const Spacer(
+          flex: 2,
+        ),
+        ElevatedButton(
+            onPressed: () {
+              print('Result: ${calcController.text}');
+            },
+            child: const Text('Calculate')),
+        const Spacer(
+          flex: 6,
+        ),
       ],
     );
   }

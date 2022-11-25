@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   String cipher = 'Cesar Code';
   final List<String> _list = ['Cesar Code', 'Atbash', 'Vignere'];
-  String encryptedText = '';
+  String encryptedText = 'waiting for input';
 
   @override
   Widget build(BuildContext context) {
@@ -66,13 +66,50 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         ElevatedButton(
             onPressed: () {
-              print('Result: ${_controller.text}');
+              encrypt(_controller.text);
             },
             child: const Text('Encrypt')),
         const Spacer(
-          flex: 6,
+          flex: 5,
+        ),
+        const Text('Encrypted Message:'),
+        const Spacer(
+          flex: 1,
+        ),
+        Text(
+          encryptedText,
+          style: Theme.of(context).textTheme.subtitle1,
+        ),
+        const Spacer(
+          flex: 15,
         ),
       ],
     );
+  }
+
+  void encrypt(String message) {
+    encryptedText = '';
+
+    // Cesar Code (key=3)
+    if (cipher == _list[0]) {
+      final runes =
+          message.runes.toList(); // Contains dec code of message characters
+
+      for (int i = 0; i < runes.length; i++) {
+        // if char is space (' ') skip shift, add space
+        if (runes[i] == ' '.runes.toList()[0]) {
+          encryptedText += ' ';
+          continue;
+        }
+        runes[i] += 3;
+        encryptedText += String.fromCharCode(runes[i]);
+      }
+
+      setState(() {
+        encryptedText;
+      });
+    } else if (cipher == _list[1]) {
+      
+    }
   }
 }

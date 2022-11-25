@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Home'),
       ),
@@ -27,45 +27,37 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _controller = TextEditingController();
 
-  final List<String> _list = ['Option 1', 'Option 2', 'Option 3'];
-  String option = 'Choose option';
-  String message = '';
-
-  @override
-  void initState() {
-    super.initState();
-    _controller.addListener(() {
-      final String text = _controller.text.toLowerCase();
-      _controller.value = _controller.value.copyWith(
-        text: text,
-        selection:
-            TextSelection(baseOffset: text.length, extentOffset: text.length),
-        composing: TextRange.empty,
-      );
-    });
-  }
+  String cipher = 'Cesar Code';
+  final List<String> _list = ['Cesar Code', 'Atbash', 'Vignere'];
+  String encryptedText = '';
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
+        Padding(
           padding: EdgeInsets.all(20.0),
           child: TextField(
             controller: _controller,
             keyboardType: TextInputType.number,
-            decoration: InputDecoration(hintText: 'Insert number'),
+            decoration: InputDecoration(
+                hintText: 'Insert your message',
+                hintStyle: Theme.of(context).textTheme.headline1),
           ),
         ),
         const Spacer(
           flex: 1,
         ),
         DropdownButton<String>(
+          value: cipher,
           items: _list.map((String value) {
             return DropdownMenuItem<String>(value: value, child: Text(value));
           }).toList(),
-          onChanged: (String? newValue) {},
-          value: _list[0],
+          onChanged: (String? newValue) {
+            setState(() {
+              cipher = newValue!;
+            });
+          },
           icon: const Icon(Icons.arrow_drop_down_rounded),
           style: Theme.of(context).textTheme.labelMedium,
         ),
@@ -74,9 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         ElevatedButton(
             onPressed: () {
-              print('Result: ${calcController.text}');
+              print('Result: ${_controller.text}');
             },
-            child: const Text('Calculate')),
+            child: const Text('Encrypt')),
         const Spacer(
           flex: 6,
         ),

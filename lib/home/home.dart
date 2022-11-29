@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -109,7 +110,55 @@ class _HomeScreenState extends State<HomeScreen> {
         encryptedText;
       });
     } else if (cipher == _list[1]) {
-      
+      var lowerCase = [
+        'z',
+        'y',
+        'x',
+        'w',
+        'v',
+        'u',
+        't',
+        's',
+        'r',
+        'q',
+        'p',
+        'o',
+        'n',
+        'm',
+        'l',
+        'k',
+        'j',
+        'i',
+        'h',
+        'g',
+        'f',
+        'e',
+        'd',
+        'c',
+        'b',
+        'a'
+      ];
+
+      int asciiChar;
+      for (int i = 0; i < message.length; i++) {
+        asciiChar =
+            message[i].toLowerCase().codeUnitAt(0); // Get char ascii value
+
+        // If char is space continue
+        if (asciiChar == 32) {
+          encryptedText += ' ';
+          continue;
+        }
+
+        // If character is in lower case(minus 97 from its ASCII value to get reversed character)
+        if (asciiChar >= 'a'.codeUnitAt(0) && asciiChar <= 'z'.codeUnitAt(0)) {
+          encryptedText += lowerCase[asciiChar - 97];
+        }
+      }
+
+      setState(() {
+        encryptedText;
+      });
     }
   }
 }

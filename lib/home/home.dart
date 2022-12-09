@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _controller = TextEditingController();
 
   String cipher = 'Cesar Code';
-  final List<String> _list = ['Cesar Code', 'Atbash', 'Vignere'];
+  final List<String> _list = ['Cesar Code', 'Atbash', 'Vigenère'];
   String encryptedText = 'waiting for input';
 
   @override
@@ -109,7 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         encryptedText;
       });
-    } else if (cipher == _list[1]) {
+    }
+    // Atbash
+    else if (cipher == _list[1]) {
       var lowerCase = [
         'z',
         'y',
@@ -154,6 +156,22 @@ class _HomeScreenState extends State<HomeScreen> {
         if (asciiChar >= 'a'.codeUnitAt(0) && asciiChar <= 'z'.codeUnitAt(0)) {
           encryptedText += lowerCase[asciiChar - 97];
         }
+      }
+
+      setState(() {
+        encryptedText;
+      });
+    }
+    // Vigenère
+    else if (cipher == _list[2]) {
+      String key = "SOMEKEY";
+      message = message.toUpperCase();
+
+      for (var i = 0; i < message.length; i++) {
+        var textCharCode = message.codeUnitAt(i) - 65;
+        var keyCharCode = key.codeUnitAt(i % key.length) - 65;
+        var encryptedCharCode = (textCharCode + keyCharCode) % 26 + 65;
+        encryptedText += String.fromCharCode(encryptedCharCode);
       }
 
       setState(() {

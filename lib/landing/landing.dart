@@ -33,13 +33,13 @@ class LandingPage extends StatelessWidget {
             // Title Centered
             CreateText(4, 'Welcome To MyApp', true, context),
 
-            // Button
+            // Button 1
             Container(
               margin: EdgeInsets.only(left: 80.0, right: 80.0),
               child: ElevatedButton(
                 onPressed: () => Navigator.pushNamed(context, '/home'),
                 child: Text(
-                  'Here goes nothing',
+                  'Cipher',
                   style: Theme.of(context).textTheme.button,
                 ),
               ),
@@ -51,7 +51,7 @@ class LandingPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => Navigator.pushNamed(context, '/http'),
                 child: Text(
-                  'Here goes nothing 2',
+                  'Http request',
                   style: Theme.of(context).textTheme.button,
                 ),
               ),

@@ -44,6 +44,18 @@ class LandingPage extends StatelessWidget {
                 ),
               ),
             ),
+
+            // Button 2
+            Container(
+              margin: EdgeInsets.only(left: 80.0, right: 80.0, top: 30.0),
+              child: ElevatedButton(
+                onPressed: () => Navigator.pushNamed(context, '/http'),
+                child: Text(
+                  'Here goes nothing 2',
+                  style: Theme.of(context).textTheme.button,
+                ),
+              ),
+            ),
           ],
         ),
       ),

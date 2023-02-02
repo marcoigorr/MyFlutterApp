@@ -37,21 +37,9 @@ class LandingPage extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(left: 80.0, right: 80.0),
               child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/home'),
+                onPressed: () => Navigator.pushNamed(context, '/cipher'),
                 child: Text(
-                  'Cipher',
-                  style: Theme.of(context).textTheme.button,
-                ),
-              ),
-            ),
-
-            // Button 2
-            Container(
-              margin: EdgeInsets.only(left: 80.0, right: 80.0, top: 30.0),
-              child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/http'),
-                child: Text(
-                  'Http request',
+                  'Here goes nothing',
                   style: Theme.of(context).textTheme.button,
                 ),
               ),

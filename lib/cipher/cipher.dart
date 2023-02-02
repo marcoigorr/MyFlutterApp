@@ -3,29 +3,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class CipherPage extends StatelessWidget {
+  const CipherPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text('Cipher'),
       ),
-      body: const HomeScreen(),
+      body: const CipherScreen(),
     );
   }
 }
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class CipherScreen extends StatefulWidget {
+  const CipherScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<CipherScreen> createState() => _CipherScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _CipherScreenState extends State<CipherScreen> {
   final TextEditingController _controller = TextEditingController();
 
   String cipher = 'Cesar Code';
@@ -84,6 +84,47 @@ class _HomeScreenState extends State<HomeScreen> {
         const Spacer(
           flex: 15,
         ),
+
+        // Bottom Navigation Bar
+        BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.enhanced_encryption,
+                size: 20,
+              ),
+              label: 'Cipher',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.http,
+                size: 20,
+              ),
+              label: 'Http',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.work,
+                size: 20,
+              ),
+              label: 'WIP',
+            ),
+          ],
+          fixedColor: Colors.blue[200],
+          onTap: (int idx) {
+            switch (idx) {
+              case 0:
+                // do nothing
+                break;
+              case 1:
+                Navigator.pushNamed(context, '/http');
+                break;
+              case 2:
+                // do nothing
+                break;
+            }
+          },
+        )
       ],
     );
   }
